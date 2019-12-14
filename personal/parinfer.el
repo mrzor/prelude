@@ -1,3 +1,5 @@
+(prelude-require-packages '(parinfer use-package rainbow-delimiters))
+
 (use-package parinfer
              :ensure t
              :bind
@@ -14,3 +16,5 @@
                (add-hook 'common-lisp-mode-hook #'parinfer-mode)
                (add-hook 'scheme-mode-hook #'parinfer-mode)
                (add-hook 'lisp-mode-hook #'parinfer-mode)))
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
