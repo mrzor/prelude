@@ -84,9 +84,9 @@
 (measure-time
   (require 'prelude-shell))
 
-(message "[prelude-modules] load prelude-scss ...")
-(measure-time
-  (require 'prelude-scss))
+;; (message "[prelude-modules] load prelude-scss ...")
+;; (measure-time
+;;   (require 'prelude-scss))
 
 (message "[prelude-modules] load prelude-web ...")
 (measure-time

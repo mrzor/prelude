@@ -39,7 +39,7 @@
 ;; MMMNX0OkkkOO00KXNWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 ;; MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM")
 
-(add-to-list 'initial-frame-alist '(fullscreen . fullboth))
+;; (add-to-list 'initial-frame-alist '(fullscreen . fullboth))
 
 (add-hook 'after-init-hook 'my-scratch-run-scheme)
 (defun my-scratch-run-scheme ()

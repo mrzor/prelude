@@ -24,6 +24,14 @@
   (setq-local helm-dash-docsets '("OCaml")))
 (add-hook 'tuareg-mode-hook 'dashdoc-ocaml)
 
+(defun dashdoc-bash ()
+  "Load helm-dash bash doc."
+  (interactive)
+  (setq-local helm-dash-docsets '("Bash")))
+(add-hook 'shell-script-mode-hook 'dashdoc-bash)
+
+(global-set-key (kbd "<f1> M-d") 'helm-dash)
+
 
 (provide 'zors-helm-dash)
 ;;; zors-helm-dash.el ends here

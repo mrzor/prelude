@@ -22,6 +22,8 @@
  '(beacon-mode t)
  '(beacon-size 50)
  '(browse-url-browser-function (quote browse-url-default-browser))
+ '(cider-repl-use-content-types t)
+ '(clojure-indent-style (quote always-indent))
  '(custom-safe-themes
    (quote
     ("1dd7b369ab51f00e91b6a990634017916e7bdeb64002b4dda0d7a618785725ac" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "1a85b8ade3d7cf76897b338ff3b20409cb5a5fbed4e45c6f38c98eee7b025ad4" default)))
@@ -40,6 +42,7 @@
  '(helm-allow-mouse t)
  '(helm-buffer-max-length 40)
  '(helm-completion-style (quote emacs))
+ '(httpd-port 7070)
  '(ido-auto-merge-work-directories-length -1)
  '(imenu-auto-rescan t)
  '(indent-tabs-mode nil)
@@ -50,7 +53,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(package-selected-packages
    (quote
-    (underwater-theme smart-mode-line-powerline-theme use-package parinfer dockerfile-mode cmake-mode nodejs-repl projectile scss-mode emojify spaceline spaceline-all-the-icons csv-mode vimish-fold tide editorconfig helm-rails rspec-mode cider clojure-mode pkgbuild-mode zop-to-char yari yaml-mode web-mode volatile-highlights utop undo-tree sublime-themes smex smartrep smart-mode-line ruby-tools robe rainbow-mode rainbow-delimiters ov operate-on-number move-text markdown-mode lua-mode less-css-mode jsx-mode json-rpc json-mode js2-mode jinja2-mode imenu-anywhere ido-ubiquitous helm-robe helm-projectile helm-descbinds helm-dash helm-ag haml-mode guru-mode grizzl gotest god-mode go-projectile gitignore-mode gitconfig-mode git-timemachine git-gutter+ gist flycheck-ocaml flx-ido expand-region exec-path-from-shell elisp-slime-nav easy-kill discover-my-major diminish diff-hl crux company-go company-anaconda coffee-mode browse-kill-ring beacon anzu ansible ace-window ace-jump-mode ace-jump-buffer)))
+    (journalctl-mode flycheck-clj-kondo auctex cython-mode vue-mode crontab-mode company-terraform terraform-doc terraform-mode apache-mode ansible-doc company-ansible python-black company-shell company-web impatient-mode vterm dashboard page-break-lines ansible rspec-mode ruby-tools markdown-mode typescript-mode zenburn-theme anaconda-mode avy flycheck ido-completing-read+ inf-ruby all-the-icons super-save comment-dwim-2 magit which-key hl-todo smartparens systemd underwater-theme smart-mode-line-powerline-theme use-package parinfer dockerfile-mode cmake-mode nodejs-repl projectile scss-mode spaceline spaceline-all-the-icons vimish-fold tide editorconfig helm-rails cider clojure-mode pkgbuild-mode zop-to-char yari yaml-mode web-mode volatile-highlights utop undo-tree smex smartrep smart-mode-line robe rainbow-mode rainbow-delimiters operate-on-number move-text less-css-mode json-rpc json-mode js2-mode jinja2-mode imenu-anywhere ido-ubiquitous helm-robe helm-projectile helm-descbinds helm-dash helm-ag haml-mode guru-mode grizzl god-mode go-projectile gitignore-mode gitconfig-mode git-timemachine git-gutter+ gist flycheck-ocaml flx-ido expand-region exec-path-from-shell elisp-slime-nav easy-kill discover-my-major diminish diff-hl crux company-go company-anaconda coffee-mode browse-kill-ring beacon anzu ace-window ace-jump-mode ace-jump-buffer)))
  '(prelude-auto-save nil)
  '(prelude-flyspell nil)
  '(prelude-smartparens-strict nil)
@@ -60,12 +63,23 @@
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "tmp" ".bundle")))
  '(rm-blacklist
    (quote
-    (" hl-p" "Projectile" "Helm" "company" "EditorConfig" "super-save")))
+    (" hl-p" " Projectile" " Helm" " company" " EditorConfig" " super-save" " Pre" " ws" " WK")))
+ '(rm-text-properties
+   (quote
+    (("\\` Ovwrt\\'"
+      (quote face)
+      (quote font-lock-warning-face))
+     ("\\` Parinfer:.+\\'"
+      (quote face)
+      (quote sml/minor-modes-hl)))))
  '(ruby-align-chained-calls t)
  '(ruby-align-to-stmt-keywords (quote (if begin case)))
  '(safe-local-variable-values
    (quote
-    ((cider-cljs-lein-repl . "(do (user/go) (user/cljs-repl))")
+    ((sql-product quote postgres)
+     (sql-product quote Postgres)
+     (sql-product . "Postgres")
+     (cider-cljs-lein-repl . "(do (user/go) (user/cljs-repl))")
      (cider-refresh-after-fn . "reloaded.repl/resume")
      (cider-refresh-before-fn . "reloaded.repl/suspend"))))
  '(savehist-autosave-interval 60)
@@ -77,7 +91,8 @@
  '(vimish-fold-global-mode t)
  '(web-mode-code-indent-offset 2)
  '(web-mode-markup-indent-offset 2)
- '(web-mode-script-padding 2))
+ '(web-mode-script-padding 2)
+ '(whitespace-line-column 100))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -93,6 +108,7 @@
  '(font-lock-builtin-face ((t (:foreground "#39CFCA"))))
  '(font-lock-constant-face ((t (:foreground "cyan3"))))
  '(font-lock-string-face ((t (:foreground "pale turquoise"))))
+ '(font-lock-warning-face ((t (:foreground "#ec0e7e"))))
  '(helm-buffer-directory ((t (:foreground "cyan"))))
  '(helm-buffer-size ((t (:background "#3F3F3F" :foreground "green yellow"))))
  '(helm-ff-directory ((t (:foreground "#88ffff"))))
@@ -100,7 +116,7 @@
  '(helm-match ((t (:foreground "cyan"))))
  '(helm-selection ((t (:background "#0b4949" :distant-foreground "white"))))
  '(helm-source-header ((t (:background "#7aa0b8" :foreground "#22343f" :slant oblique :weight bold :height 1.8 :family "Latin Modern Mono Caps"))))
- '(hl-line ((t (:background "#000000"))))
+ '(hl-line ((t (:background "#000000" :underline nil))))
  '(markdown-code-face ((t (:foreground "light slate blue" :slant italic))))
  '(minibuffer-prompt ((t (:background "sky blue" :foreground "dark slate gray" :weight bold :height 139))))
  '(mode-line ((t (:background "#22343f" :foreground "#64C4F7" :inverse-video nil :box (:line-width 2 :color "#7aa0b8") :height 1.1 :family "Terminus (TTF)"))))
@@ -120,9 +136,11 @@
  '(region ((t (:inverse-video t))))
  '(sml/filename ((t (:inherit sml/global :foreground "turquoise" :weight bold))))
  '(sml/minor-modes ((t (:inherit sml/global :height 0.7))))
+ '(sml/minor-modes-hl ((t (:inherit sml/minor-modes :foreground "turquoise" :weight bold))))
  '(sml/prefix ((t (:inherit sml/global :foreground "#bf6000" :height 1.0))))
  '(sp-show-pair-match-face ((t (:background "#21000E" :foreground "#7C00A6" :weight bold))))
  '(tuareg-font-lock-error-face ((t (:background "firebrick" :foreground "light goldenrod" :weight semi-bold))))
  '(variable-pitch ((t (:height 1.3 :family "Latin Modern Sans"))))
- '(whitespace-line ((t (:background "#151515" :foreground "#d5b5b1"))))
+ '(whitespace-line ((t (:background "#151515" :foreground "indian red"))))
+ '(whitespace-tab ((t (:strike-through "dark slate gray"))))
  '(widget-field ((t (:background "#22263f" :foreground "#DCDCCC")))))
