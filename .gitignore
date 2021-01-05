@@ -30,3 +30,7 @@ transient/
 /abbrev_defs
 /anaconda-mode/
 /emojis/
+var/
+.cache/
+.lsp-session*
+
