@@ -30,7 +30,16 @@
   (setq-local helm-dash-docsets '("Bash")))
 (add-hook 'shell-script-mode-hook 'dashdoc-bash)
 
+(defun dashdoc-java ()
+  "Load helm-dash java doc."
+  (interactive)
+  (setq-local helm-dash-docsets '("Java")))
+(add-hook 'java-mode-hook 'dashdoc-java)
+(add-hook 'clojure-mode-hook 'dashdoc-java)
+
+
 (global-set-key (kbd "<f1> M-d") 'helm-dash)
+(global-set-key (kbd "C-h M-d") 'helm-dash)
 
 
 (provide 'zors-helm-dash)
